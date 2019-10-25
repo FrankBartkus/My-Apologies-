@@ -8,12 +8,12 @@ public class PawnMove : MonoBehaviour
     public Color selected;
     public Color unSelected;
     public int pawnNumber;
+    int movedPawnNumber = -1;
     int moveBy;
     GameObject moveTo;
     bool start = true;
     public char color;
     float timer = 0.0f;
-    static GameObject selection;
     static bool selectionMade = false;
     // Start is called before the first frame update
     void Start()
@@ -33,11 +33,11 @@ public class PawnMove : MonoBehaviour
                 {
                     if (manager.GetComponent<GameManager>().turn == 0 && color == 'y' || manager.GetComponent<GameManager>().turn == 1 && color == 'g' || manager.GetComponent<GameManager>().turn == 2 && color == 'r' || manager.GetComponent<GameManager>().turn == 3 && color == 'b')
                     {
-                        if (moveBy != 0)
+                        if (moveBy != 0 && !selectionMade)
                         {
                             if (hit.transform.gameObject.GetComponent<PawnMove>().pawnNumber == pawnNumber)
                             {
-                                selection = gameObject;
+                                movedPawnNumber = pawnNumber;
                                 lightBoard();
                             }
                         }
@@ -51,7 +51,6 @@ public class PawnMove : MonoBehaviour
         int id = (currentID + i) % 60;
         if (start)
         {
-            start = false;
             switch (color)
             {
                 case 'y':
@@ -88,8 +87,10 @@ public class PawnMove : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (selection != null)
+            if (movedPawnNumber != -1)
             {
+                if (movedPawnNumber == pawnNumber)
+                    start = false;
                 setMoveTo();
                 selectionMade = true;
             }
@@ -117,7 +118,7 @@ public class PawnMove : MonoBehaviour
                 moveBy = 5;
             }
         }
-        if (moveTo != null && selection == gameObject && selectionMade)
+        if (moveTo != null && movedPawnNumber > -1 && selectionMade)
         {
             moveTo.GetComponent<SpriteRenderer>().color = unSelected;
             if (timer > 1.2f)
@@ -139,7 +140,7 @@ public class PawnMove : MonoBehaviour
                 currentID = moveTo.GetComponent<Square>().squareID;
                 moveBy = 0;
                 moveTo = null;
-                selection = null;
+                movedPawnNumber = -1;
                 selectionMade = false;
                 return;
             }
