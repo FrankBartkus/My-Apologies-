@@ -217,6 +217,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentID: 0
+  selected: {r: 1, g: 1, b: 0, a: 1}
+  unSelected: {r: 1, g: 1, b: 1, a: 1}
   color: 103
 --- !u!1 &64368165
 GameObject:
@@ -1799,6 +1801,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentID: 0
+  selected: {r: 1, g: 1, b: 0, a: 1}
+  unSelected: {r: 1, g: 1, b: 1, a: 1}
   color: 121
 --- !u!1 &409181247
 GameObject:
@@ -2459,6 +2463,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentID: 0
+  selected: {r: 1, g: 1, b: 0, a: 1}
+  unSelected: {r: 1, g: 1, b: 1, a: 1}
   color: 98
 --- !u!1 &497981154
 GameObject:
@@ -2837,6 +2843,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentID: 0
+  selected: {r: 1, g: 1, b: 0, a: 1}
+  unSelected: {r: 1, g: 1, b: 1, a: 1}
   color: 121
 --- !u!1 &573266410
 GameObject:
@@ -3228,6 +3236,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentID: 0
+  selected: {r: 1, g: 1, b: 0, a: 1}
+  unSelected: {r: 1, g: 1, b: 1, a: 1}
   color: 114
 --- !u!1 &618392103
 GameObject:
@@ -3809,6 +3819,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentID: 0
+  selected: {r: 1, g: 1, b: 0, a: 1}
+  unSelected: {r: 1, g: 1, b: 1, a: 1}
   color: 103
 --- !u!1 &862299354
 GameObject:
@@ -3994,6 +4006,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentID: 0
+  selected: {r: 1, g: 1, b: 0, a: 1}
+  unSelected: {r: 1, g: 1, b: 1, a: 1}
   color: 98
 --- !u!1 &889397088
 GameObject:
@@ -4100,6 +4114,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentID: 0
+  selected: {r: 1, g: 1, b: 0, a: 1}
+  unSelected: {r: 1, g: 1, b: 1, a: 1}
   color: 103
 --- !u!1 &891416799
 GameObject:
@@ -5441,6 +5457,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentID: 0
+  selected: {r: 1, g: 1, b: 0, a: 1}
+  unSelected: {r: 1, g: 1, b: 1, a: 1}
   color: 121
 --- !u!1 &1338593461
 GameObject:
@@ -7051,6 +7069,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentID: 0
+  selected: {r: 1, g: 1, b: 0, a: 1}
+  unSelected: {r: 1, g: 1, b: 1, a: 1}
   color: 114
 --- !u!1 &1859125842
 GameObject:
@@ -7917,6 +7937,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentID: 0
+  selected: {r: 1, g: 1, b: 0, a: 1}
+  unSelected: {r: 1, g: 1, b: 1, a: 1}
   color: 114
 --- !u!1 &2089604918
 GameObject:
@@ -8213,4 +8235,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentID: 0
+  selected: {r: 1, g: 1, b: 0, a: 1}
+  unSelected: {r: 1, g: 1, b: 1, a: 1}
   color: 98

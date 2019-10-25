@@ -24,18 +24,32 @@ public class GameManager : MonoBehaviour
                     {
                         for (int j = 0; j < 7; j++)
                         {
-                            if (board.GetComponent<Square>().safeZoneID == j)
-                                board_[i, j] = board;
+                            if (board.GetComponent<Square>().squareID == j + i)
+                                board_[i + j, 0] = board;
                         }
                     }
                 }
             }
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        int[] id = { 0, 0, 0, 0 };
+        GameObject[] pawns = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject pawn in pawns)
+        {
+            switch (pawn.GetComponent<PawnMove>().color)
+            {
+                case 'y':
+                    pawn.GetComponent<PawnMove>().pawnNumber = id[0]++;
+                    break;
+                case 'g':
+                    pawn.GetComponent<PawnMove>().pawnNumber = id[1]++;
+                    break;
+                case 'r':
+                    pawn.GetComponent<PawnMove>().pawnNumber = id[2]++;
+                    break;
+                case 'b':
+                    pawn.GetComponent<PawnMove>().pawnNumber = id[3]++;
+                    break;
+            }
+        }
     }
 }

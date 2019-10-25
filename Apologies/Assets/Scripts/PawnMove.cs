@@ -5,11 +5,16 @@ using UnityEngine;
 public class PawnMove : MonoBehaviour
 {
     public int currentID;
+    public Color selected;
+    public Color unSelected;
+    public int pawnNumber;
+    int moveBy;
     GameObject moveTo;
     bool start = true;
     public char color;
     float timer = 0.0f;
-    bool isSelected = false;
+    static GameObject selection;
+    static bool selectionMade = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,78 +26,100 @@ public class PawnMove : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
         {
-            if (hit.transform.tag == "Player")
+            if (hit.transform.gameObject.GetComponent<PawnMove>() != null)
             {
                 GameObject manager = GameObject.FindWithTag("Manager");
                 if (manager != null)
                 {
                     if (manager.GetComponent<GameManager>().turn == 0 && color == 'y' || manager.GetComponent<GameManager>().turn == 1 && color == 'g' || manager.GetComponent<GameManager>().turn == 2 && color == 'r' || manager.GetComponent<GameManager>().turn == 3 && color == 'b')
                     {
-                        if (moveTo != null)
+                        if (moveBy != 0)
                         {
-                            isSelected = true;
-                            Debug.Log("Worked");
+                            if (hit.transform.gameObject.GetComponent<PawnMove>().pawnNumber == pawnNumber)
+                            {
+                                selection = gameObject;
+                                lightBoard();
+                            }
                         }
                     }
                 }
             }
         }
     }
-    int move(int i)
+    int findId(int i)
     {
         int id = (currentID + i) % 60;
-        if (moveTo == null)
+        if (start)
         {
-            if (start)
+            start = false;
+            switch (color)
             {
-                start = false;
-                switch (color)
-                {
-                    case 'y':
-                        id = 4 + i;
-                        break;
-                    case 'g':
-                        id = 19 + i;
-                        break;
-                    case 'r':
-                        id = 24 + i;
-                        break;
-                    case 'b':
-                        id = 49 + i;
-                        break;
-                }
+                case 'y':
+                    id = 4 + i;
+                    break;
+                case 'g':
+                    id = 19 + i;
+                    break;
+                case 'r':
+                    id = 24 + i;
+                    break;
+                case 'b':
+                    id = 49 + i;
+                    break;
             }
-            moveTo = GameObject.FindWithTag("Manager").GetComponent<GameManager>().board_[id, 0];
-            timer = 1.5f;
-            return id;
         }
-        return currentID % 60;
+        return id;
+    }
+    void setMoveTo()
+    {
+        moveTo = GameObject.FindWithTag("Manager").GetComponent<GameManager>().board_[findId(moveBy), 0];
+        timer = 1.5f;
+    }
+    void lightBoard()
+    {
+        for (int j = 0; j < 60; j++)
+        {
+            GameObject.FindWithTag("Manager").GetComponent<GameManager>().board_[j, 0].GetComponent<SpriteRenderer>().color = unSelected;
+        }
+        GameObject.FindWithTag("Manager").GetComponent<GameManager>().board_[findId(moveBy), 0].GetComponent<SpriteRenderer>().color = selected;
     }
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            currentID = move(1);
+            if (selection != null)
+            {
+                setMoveTo();
+                selectionMade = true;
+            }
         }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
+        if(moveBy == 0)
         {
-            currentID = move(2);
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                moveBy = 1;
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                moveBy = 2;
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                moveBy = 3;
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha4))
+            {
+                moveBy = 4;
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha5))
+            {
+                moveBy = 5;
+            }
         }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
+        if (moveTo != null && selection == gameObject && selectionMade)
         {
-            currentID = move(3);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            currentID = move(4);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha5))
-        {
-            currentID = move(5);
-        }
-        if (moveTo != null && isSelected)
-        {
+            moveTo.GetComponent<SpriteRenderer>().color = unSelected;
             if (timer > 1.2f)
             {
                 LeanTween.moveLocalY(gameObject, moveTo.transform.position.y + 1.25f, 0.3f);
@@ -109,8 +136,11 @@ public class PawnMove : MonoBehaviour
             else
             {
                 timer = 0.0f;
+                currentID = moveTo.GetComponent<Square>().squareID;
+                moveBy = 0;
                 moveTo = null;
-                isSelected = false;
+                selection = null;
+                selectionMade = false;
                 return;
             }
             timer -= Time.deltaTime;

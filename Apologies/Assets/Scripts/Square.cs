@@ -6,7 +6,6 @@ public class Square : MonoBehaviour
 {
     public int squareID;
     public char safeZone = ' ';
-    public int safeZoneID;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +19,6 @@ public class Square : MonoBehaviour
         if (Physics.Raycast(ray, out hit, 100.0f))
         {
             Debug.Log(hit.collider.gameObject.GetComponent<Square>().squareID);
-            Debug.Log(hit.collider.gameObject.GetComponent<Square>().safeZoneID);
         }
     }
 }
