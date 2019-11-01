@@ -8,17 +8,19 @@ public class PawnMove : MonoBehaviour
     public Color selected;
     public Color unSelected;
     public int pawnNumber;
-    int movedPawnNumber = -1;
+    static int movedPawnNumber = -1;
+    static bool selectionMade = false;
+    GameObject manager;
     int moveBy;
     GameObject moveTo;
     bool start = true;
     public char color;
     float timer = 0.0f;
-    static bool selectionMade = false;
     // Start is called before the first frame update
     void Start()
     {
         currentID = -1;
+        manager = GameObject.FindWithTag("Manager");
     }
     private void OnMouseDown()
     {
@@ -28,7 +30,6 @@ public class PawnMove : MonoBehaviour
         {
             if (hit.transform.gameObject.GetComponent<PawnMove>() != null)
             {
-                GameObject manager = GameObject.FindWithTag("Manager");
                 if (manager != null)
                 {
                     if (manager.GetComponent<GameManager>().turn == 0 && color == 'y' || manager.GetComponent<GameManager>().turn == 1 && color == 'g' || manager.GetComponent<GameManager>().turn == 2 && color == 'r' || manager.GetComponent<GameManager>().turn == 3 && color == 'b')
@@ -48,7 +49,7 @@ public class PawnMove : MonoBehaviour
     }
     int findId(int i)
     {
-        int id = (currentID + i) % 60;
+        int id = currentID;
         if (start)
         {
             switch (color)
@@ -60,39 +61,60 @@ public class PawnMove : MonoBehaviour
                     id = 19 + i;
                     break;
                 case 'r':
-                    id = 24 + i;
+                    id = 34 + i;
                     break;
                 case 'b':
                     id = 49 + i;
                     break;
             }
         }
-        return id;
+        switch (color)
+        {
+            case 'y':
+                if ((currentID + i) % 60 > 3)
+                {
+
+                }
+                break;
+            case 'g':
+                id = 19 + i;
+                break;
+            case 'r':
+                id = 34 + i;
+                break;
+            case 'b':
+                id = 49 + i;
+                break;
+        }
+        return (currentID + i) % 60;
     }
     void setMoveTo()
     {
-        moveTo = GameObject.FindWithTag("Manager").GetComponent<GameManager>().board_[findId(moveBy), 0];
+        moveTo = GameObject.FindWithTag("Manager").GetComponent<GameManager>().board_[findId(moveBy)];
         timer = 1.5f;
     }
     void lightBoard()
     {
         for (int j = 0; j < 60; j++)
         {
-            GameObject.FindWithTag("Manager").GetComponent<GameManager>().board_[j, 0].GetComponent<SpriteRenderer>().color = unSelected;
+            GameObject.FindWithTag("Manager").GetComponent<GameManager>().board_[j].GetComponent<SpriteRenderer>().color = unSelected;
         }
-        GameObject.FindWithTag("Manager").GetComponent<GameManager>().board_[findId(moveBy), 0].GetComponent<SpriteRenderer>().color = selected;
+        GameObject.FindWithTag("Manager").GetComponent<GameManager>().board_[findId(moveBy)].GetComponent<SpriteRenderer>().color = selected;
     }
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (movedPawnNumber != -1)
+            if (movedPawnNumber == pawnNumber)
             {
-                if (movedPawnNumber == pawnNumber)
-                    start = false;
                 setMoveTo();
+                if (start)  start = false;
                 selectionMade = true;
+            }
+            else
+            {
+                moveBy = 0;
             }
         }
         if(moveBy == 0)
@@ -142,7 +164,7 @@ public class PawnMove : MonoBehaviour
                 moveTo = null;
                 movedPawnNumber = -1;
                 selectionMade = false;
-                return;
+                manager.GetComponent<GameManager>().turn = ++manager.GetComponent<GameManager>().turn % 4;
             }
             timer -= Time.deltaTime;
         }
