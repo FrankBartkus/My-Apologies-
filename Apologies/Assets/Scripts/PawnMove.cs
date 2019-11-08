@@ -13,6 +13,7 @@ public class PawnMove : MonoBehaviour
     GameObject manager;
     int moveBy;
     GameObject moveTo;
+    GameObject selectBoard;
     bool start = true;
     public char color;
     float timer = 0.0f;
@@ -39,6 +40,8 @@ public class PawnMove : MonoBehaviour
                             if (hit.transform.gameObject.GetComponent<PawnMove>().pawnNumber == pawnNumber)
                             {
                                 movedPawnNumber = pawnNumber;
+                                selectBoard = manager.GetComponent<GameManager>().board_[findId(moveBy)];
+                                Debug.Log(findId(moveBy));
                                 lightBoard();
                             }
                         }
@@ -55,25 +58,25 @@ public class PawnMove : MonoBehaviour
             switch (color)
             {
                 case 'y':
-                    id = 4 + i;
+                    id = 2 + i;
                     break;
                 case 'g':
-                    id = 19 + i;
+                    id = 17 + i;
                     break;
                 case 'r':
-                    id = 34 + i;
+                    id = 32 + i;
                     break;
                 case 'b':
-                    id = 49 + i;
+                    id = 47 + i;
                     break;
             }
         }
         switch (color)
         {
             case 'y':
-                if ((currentID + i) % 60 > 3)
+                if ((id + i + 60) % 60 > 3 && (id + 60) % 60 < 3)
                 {
-
+                    return (id + i) + 60 - 3;
                 }
                 break;
             case 'g':
@@ -86,20 +89,15 @@ public class PawnMove : MonoBehaviour
                 id = 49 + i;
                 break;
         }
-        return (currentID + i) % 60;
-    }
-    void setMoveTo()
-    {
-        moveTo = GameObject.FindWithTag("Manager").GetComponent<GameManager>().board_[findId(moveBy)];
-        timer = 1.5f;
+        return (id + i) % 60;
     }
     void lightBoard()
     {
         for (int j = 0; j < 60; j++)
         {
-            GameObject.FindWithTag("Manager").GetComponent<GameManager>().board_[j].GetComponent<SpriteRenderer>().color = unSelected;
+            manager.GetComponent<GameManager>().board_[j].GetComponent<SpriteRenderer>().color = unSelected;
         }
-        GameObject.FindWithTag("Manager").GetComponent<GameManager>().board_[findId(moveBy)].GetComponent<SpriteRenderer>().color = selected;
+        selectBoard.GetComponent<SpriteRenderer>().color = selected;
     }
     // Update is called once per frame
     void Update()
@@ -108,7 +106,11 @@ public class PawnMove : MonoBehaviour
         {
             if (movedPawnNumber == pawnNumber)
             {
-                setMoveTo();
+                if((moveBy + currentID) % 60 < moveBy % 60)
+                Debug.Log(moveBy + currentID);
+                moveTo = selectBoard;
+                selectBoard = null;
+                timer = 1.5f;
                 if (start)  start = false;
                 selectionMade = true;
             }
@@ -139,6 +141,10 @@ public class PawnMove : MonoBehaviour
             {
                 moveBy = 5;
             }
+            if (Input.GetKeyDown(KeyCode.Alpha9))
+            {
+                moveBy = 9;
+            }
         }
         if (moveTo != null && movedPawnNumber > -1 && selectionMade)
         {
@@ -164,7 +170,7 @@ public class PawnMove : MonoBehaviour
                 moveTo = null;
                 movedPawnNumber = -1;
                 selectionMade = false;
-                manager.GetComponent<GameManager>().turn = ++manager.GetComponent<GameManager>().turn % 4;
+                //manager.GetComponent<GameManager>().turn = ++manager.GetComponent<GameManager>().turn % 4;
             }
             timer -= Time.deltaTime;
         }

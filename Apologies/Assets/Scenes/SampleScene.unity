@@ -219,6 +219,7 @@ MonoBehaviour:
   currentID: 0
   selected: {r: 1, g: 1, b: 0, a: 1}
   unSelected: {r: 1, g: 1, b: 1, a: 1}
+  pawnNumber: 0
   color: 103
 --- !u!1 &64368165
 GameObject:
@@ -393,7 +394,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareID: 34
   safeZone: 0
-  safeZoneID: 0
 --- !u!1 &134995270
 GameObject:
   m_ObjectHideFlags: 0
@@ -487,6 +487,95 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turn: 0
+  board_:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &162849292
 GameObject:
   m_ObjectHideFlags: 0
@@ -581,7 +670,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareID: 29
   safeZone: 0
-  safeZoneID: 0
 --- !u!1 &170076733
 GameObject:
   m_ObjectHideFlags: 0
@@ -745,7 +833,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareID: 41
   safeZone: 0
-  safeZoneID: 0
 --- !u!1 &178538580
 GameObject:
   m_ObjectHideFlags: 0
@@ -840,7 +927,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareID: 4
   safeZone: 0
-  safeZoneID: 0
 --- !u!1 &252196221
 GameObject:
   m_ObjectHideFlags: 0
@@ -935,7 +1021,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareID: 43
   safeZone: 0
-  safeZoneID: 0
 --- !u!1 &270573233
 GameObject:
   m_ObjectHideFlags: 0
@@ -1030,7 +1115,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareID: 38
   safeZone: 0
-  safeZoneID: 0
 --- !u!1 &278266192
 GameObject:
   m_ObjectHideFlags: 0
@@ -1125,7 +1209,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareID: 42
   safeZone: 0
-  safeZoneID: 0
 --- !u!1 &317354294
 GameObject:
   m_ObjectHideFlags: 0
@@ -1220,7 +1303,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareID: 15
   safeZone: 0
-  safeZoneID: 0
 --- !u!1 &337913595
 GameObject:
   m_ObjectHideFlags: 0
@@ -1315,7 +1397,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareID: 23
   safeZone: 0
-  safeZoneID: 0
 --- !u!1 &348799252
 GameObject:
   m_ObjectHideFlags: 0
@@ -1410,7 +1491,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareID: 21
   safeZone: 0
-  safeZoneID: 0
 --- !u!1 &361985822
 GameObject:
   m_ObjectHideFlags: 0
@@ -1505,7 +1585,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareID: 55
   safeZone: 0
-  safeZoneID: 0
 --- !u!1 &384486235
 GameObject:
   m_ObjectHideFlags: 0
@@ -1600,7 +1679,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareID: 11
   safeZone: 0
-  safeZoneID: 0
 --- !u!1 &388678149
 GameObject:
   m_ObjectHideFlags: 0
@@ -1645,9 +1723,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0630156cb3accca44858adc1acf1d402, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  squareID: 2
+  squareID: 60
   safeZone: 121
-  safeZoneID: 1
 --- !u!212 &388678152
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1803,6 +1880,7 @@ MonoBehaviour:
   currentID: 0
   selected: {r: 1, g: 1, b: 0, a: 1}
   unSelected: {r: 1, g: 1, b: 1, a: 1}
+  pawnNumber: 0
   color: 121
 --- !u!1 &409181247
 GameObject:
@@ -1898,7 +1976,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareID: 40
   safeZone: 0
-  safeZoneID: 0
 --- !u!1 &421506500
 GameObject:
   m_ObjectHideFlags: 0
@@ -1993,7 +2070,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareID: 56
   safeZone: 0
-  safeZoneID: 0
 --- !u!1 &441993931
 GameObject:
   m_ObjectHideFlags: 0
@@ -2088,7 +2164,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareID: 47
   safeZone: 0
-  safeZoneID: 0
 --- !u!1 &453651290
 GameObject:
   m_ObjectHideFlags: 0
@@ -2183,7 +2258,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareID: 33
   safeZone: 0
-  safeZoneID: 0
 --- !u!1 &465446318
 GameObject:
   m_ObjectHideFlags: 0
@@ -2357,7 +2431,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareID: 51
   safeZone: 0
-  safeZoneID: 0
 --- !u!1 &497630529
 GameObject:
   m_ObjectHideFlags: 0
@@ -2465,6 +2538,7 @@ MonoBehaviour:
   currentID: 0
   selected: {r: 1, g: 1, b: 0, a: 1}
   unSelected: {r: 1, g: 1, b: 1, a: 1}
+  pawnNumber: 0
   color: 98
 --- !u!1 &497981154
 GameObject:
@@ -2560,7 +2634,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareID: 6
   safeZone: 0
-  safeZoneID: 0
 --- !u!1 &531389689
 GameObject:
   m_ObjectHideFlags: 0
@@ -2655,7 +2728,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareID: 26
   safeZone: 0
-  safeZoneID: 0
 --- !u!1 &534669902
 GameObject:
   m_ObjectHideFlags: 0
@@ -2845,6 +2917,7 @@ MonoBehaviour:
   currentID: 0
   selected: {r: 1, g: 1, b: 0, a: 1}
   unSelected: {r: 1, g: 1, b: 1, a: 1}
+  pawnNumber: 0
   color: 121
 --- !u!1 &573266410
 GameObject:
@@ -2940,7 +3013,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareID: 39
   safeZone: 0
-  safeZoneID: 0
 --- !u!1 &573838406
 GameObject:
   m_ObjectHideFlags: 0
@@ -3035,7 +3107,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareID: 17
   safeZone: 0
-  safeZoneID: 0
 --- !u!1 &595574102
 GameObject:
   m_ObjectHideFlags: 0
@@ -3130,7 +3201,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareID: 9
   safeZone: 0
-  safeZoneID: 0
 --- !u!1 &600723842
 GameObject:
   m_ObjectHideFlags: 0
@@ -3238,6 +3308,7 @@ MonoBehaviour:
   currentID: 0
   selected: {r: 1, g: 1, b: 0, a: 1}
   unSelected: {r: 1, g: 1, b: 1, a: 1}
+  pawnNumber: 0
   color: 114
 --- !u!1 &618392103
 GameObject:
@@ -3333,7 +3404,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareID: 1
   safeZone: 0
-  safeZoneID: 0
 --- !u!1 &672601107
 GameObject:
   m_ObjectHideFlags: 0
@@ -3428,7 +3498,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareID: 27
   safeZone: 0
-  safeZoneID: 0
 --- !u!1 &712486014
 GameObject:
   m_ObjectHideFlags: 0
@@ -3523,7 +3592,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareID: 32
   safeZone: 0
-  safeZoneID: 0
 --- !u!1 &758279860
 GameObject:
   m_ObjectHideFlags: 0
@@ -3568,9 +3636,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0630156cb3accca44858adc1acf1d402, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  squareID: 2
+  squareID: 64
   safeZone: 121
-  safeZoneID: 5
 --- !u!212 &758279863
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3713,7 +3780,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareID: 3
   safeZone: 0
-  safeZoneID: 0
 --- !u!1 &836133336
 GameObject:
   m_ObjectHideFlags: 0
@@ -3821,6 +3887,7 @@ MonoBehaviour:
   currentID: 0
   selected: {r: 1, g: 1, b: 0, a: 1}
   unSelected: {r: 1, g: 1, b: 1, a: 1}
+  pawnNumber: 0
   color: 103
 --- !u!1 &862299354
 GameObject:
@@ -4008,6 +4075,7 @@ MonoBehaviour:
   currentID: 0
   selected: {r: 1, g: 1, b: 0, a: 1}
   unSelected: {r: 1, g: 1, b: 1, a: 1}
+  pawnNumber: 0
   color: 98
 --- !u!1 &889397088
 GameObject:
@@ -4116,6 +4184,7 @@ MonoBehaviour:
   currentID: 0
   selected: {r: 1, g: 1, b: 0, a: 1}
   unSelected: {r: 1, g: 1, b: 1, a: 1}
+  pawnNumber: 0
   color: 103
 --- !u!1 &891416799
 GameObject:
@@ -4211,7 +4280,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareID: 13
   safeZone: 0
-  safeZoneID: 0
 --- !u!1 &905922745
 GameObject:
   m_ObjectHideFlags: 0
@@ -4305,8 +4373,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   squareID: 2
-  safeZone: 0
-  safeZoneID: 0
+  safeZone: 121
 --- !u!1 &936881762
 GameObject:
   m_ObjectHideFlags: 0
@@ -4401,7 +4468,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareID: 14
   safeZone: 0
-  safeZoneID: 0
 --- !u!1 &937578671
 GameObject:
   m_ObjectHideFlags: 0
@@ -4496,7 +4562,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareID: 12
   safeZone: 0
-  safeZoneID: 0
 --- !u!1 &953596979
 GameObject:
   m_ObjectHideFlags: 0
@@ -4591,7 +4656,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareID: 28
   safeZone: 0
-  safeZoneID: 0
 --- !u!1 &968406258
 GameObject:
   m_ObjectHideFlags: 0
@@ -4686,7 +4750,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareID: 8
   safeZone: 0
-  safeZoneID: 0
 --- !u!1 &1016834941
 GameObject:
   m_ObjectHideFlags: 0
@@ -4781,7 +4844,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareID: 44
   safeZone: 0
-  safeZoneID: 0
 --- !u!1 &1023847137
 GameObject:
   m_ObjectHideFlags: 0
@@ -4876,7 +4938,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareID: 24
   safeZone: 0
-  safeZoneID: 0
 --- !u!1 &1072798572
 GameObject:
   m_ObjectHideFlags: 0
@@ -4971,7 +5032,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareID: 48
   safeZone: 0
-  safeZoneID: 0
 --- !u!1 &1085449716
 GameObject:
   m_ObjectHideFlags: 0
@@ -5066,7 +5126,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareID: 57
   safeZone: 0
-  safeZoneID: 0
 --- !u!1 &1167510979
 GameObject:
   m_ObjectHideFlags: 0
@@ -5161,7 +5220,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareID: 30
   safeZone: 0
-  safeZoneID: 0
 --- !u!1 &1172272042
 GameObject:
   m_ObjectHideFlags: 0
@@ -5256,7 +5314,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareID: 18
   safeZone: 0
-  safeZoneID: 0
 --- !u!1 &1281592100
 GameObject:
   m_ObjectHideFlags: 0
@@ -5351,7 +5408,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareID: 58
   safeZone: 0
-  safeZoneID: 0
 --- !u!1 &1314561698
 GameObject:
   m_ObjectHideFlags: 0
@@ -5459,6 +5515,7 @@ MonoBehaviour:
   currentID: 0
   selected: {r: 1, g: 1, b: 0, a: 1}
   unSelected: {r: 1, g: 1, b: 1, a: 1}
+  pawnNumber: 0
   color: 121
 --- !u!1 &1338593461
 GameObject:
@@ -5504,9 +5561,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0630156cb3accca44858adc1acf1d402, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  squareID: 2
+  squareID: 62
   safeZone: 121
-  safeZoneID: 3
 --- !u!212 &1338593464
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5744,7 +5800,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareID: 31
   safeZone: 0
-  safeZoneID: 0
 --- !u!1 &1374999382
 GameObject:
   m_ObjectHideFlags: 0
@@ -5839,7 +5894,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareID: 19
   safeZone: 0
-  safeZoneID: 0
 --- !u!1 &1382009478
 GameObject:
   m_ObjectHideFlags: 0
@@ -5934,7 +5988,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareID: 49
   safeZone: 0
-  safeZoneID: 0
 --- !u!1 &1402576346
 GameObject:
   m_ObjectHideFlags: 0
@@ -6029,7 +6082,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareID: 20
   safeZone: 0
-  safeZoneID: 0
 --- !u!1 &1524020765
 GameObject:
   m_ObjectHideFlags: 0
@@ -6124,7 +6176,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareID: 46
   safeZone: 0
-  safeZoneID: 0
 --- !u!1 &1532697085
 GameObject:
   m_ObjectHideFlags: 0
@@ -6169,9 +6220,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0630156cb3accca44858adc1acf1d402, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  squareID: 2
+  squareID: 63
   safeZone: 121
-  safeZoneID: 4
 --- !u!212 &1532697088
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6393,7 +6443,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareID: 0
   safeZone: 0
-  safeZoneID: 0
 --- !u!1 &1608694892
 GameObject:
   m_ObjectHideFlags: 0
@@ -6488,7 +6537,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareID: 22
   safeZone: 0
-  safeZoneID: 0
 --- !u!1 &1626060550
 GameObject:
   m_ObjectHideFlags: 0
@@ -6583,7 +6631,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareID: 25
   safeZone: 0
-  safeZoneID: 0
 --- !u!1 &1629464114
 GameObject:
   m_ObjectHideFlags: 0
@@ -6678,7 +6725,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareID: 52
   safeZone: 0
-  safeZoneID: 0
 --- !u!1 &1634645086
 GameObject:
   m_ObjectHideFlags: 0
@@ -6773,7 +6819,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareID: 7
   safeZone: 0
-  safeZoneID: 0
 --- !u!1 &1645107219
 GameObject:
   m_ObjectHideFlags: 0
@@ -6868,7 +6913,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareID: 36
   safeZone: 0
-  safeZoneID: 0
 --- !u!1 &1704687825
 GameObject:
   m_ObjectHideFlags: 0
@@ -6913,9 +6957,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0630156cb3accca44858adc1acf1d402, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  squareID: 2
+  squareID: 61
   safeZone: 121
-  safeZoneID: 2
 --- !u!212 &1704687828
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7071,6 +7114,7 @@ MonoBehaviour:
   currentID: 0
   selected: {r: 1, g: 1, b: 0, a: 1}
   unSelected: {r: 1, g: 1, b: 1, a: 1}
+  pawnNumber: 0
   color: 114
 --- !u!1 &1859125842
 GameObject:
@@ -7166,7 +7210,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareID: 54
   safeZone: 0
-  safeZoneID: 0
 --- !u!1 &1867474910
 GameObject:
   m_ObjectHideFlags: 0
@@ -7261,7 +7304,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareID: 59
   safeZone: 0
-  safeZoneID: 0
 --- !u!1 &1876161119
 GameObject:
   m_ObjectHideFlags: 0
@@ -7356,7 +7398,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareID: 35
   safeZone: 0
-  safeZoneID: 0
 --- !u!1 &1913662657
 GameObject:
   m_ObjectHideFlags: 0
@@ -7451,7 +7492,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareID: 53
   safeZone: 0
-  safeZoneID: 0
 --- !u!1 &1921848277
 GameObject:
   m_ObjectHideFlags: 0
@@ -7546,7 +7586,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareID: 45
   safeZone: 0
-  safeZoneID: 0
 --- !u!1 &1936565775
 GameObject:
   m_ObjectHideFlags: 0
@@ -7641,7 +7680,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareID: 10
   safeZone: 0
-  safeZoneID: 0
 --- !u!1 &1952583996
 GameObject:
   m_ObjectHideFlags: 0
@@ -7736,7 +7774,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareID: 50
   safeZone: 0
-  safeZoneID: 0
 --- !u!1 &2066301970
 GameObject:
   m_ObjectHideFlags: 0
@@ -7831,7 +7868,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareID: 5
   safeZone: 0
-  safeZoneID: 0
 --- !u!1 &2080897455
 GameObject:
   m_ObjectHideFlags: 0
@@ -7939,6 +7975,7 @@ MonoBehaviour:
   currentID: 0
   selected: {r: 1, g: 1, b: 0, a: 1}
   unSelected: {r: 1, g: 1, b: 1, a: 1}
+  pawnNumber: 0
   color: 114
 --- !u!1 &2089604918
 GameObject:
@@ -8034,7 +8071,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareID: 16
   safeZone: 0
-  safeZoneID: 0
 --- !u!1 &2113099917
 GameObject:
   m_ObjectHideFlags: 0
@@ -8129,7 +8165,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareID: 37
   safeZone: 0
-  safeZoneID: 0
 --- !u!1 &2115347919
 GameObject:
   m_ObjectHideFlags: 0
@@ -8237,4 +8272,5 @@ MonoBehaviour:
   currentID: 0
   selected: {r: 1, g: 1, b: 0, a: 1}
   unSelected: {r: 1, g: 1, b: 1, a: 1}
+  pawnNumber: 0
   color: 98

@@ -16,17 +16,39 @@ public class GameManager : MonoBehaviour
             {
                 if (board.GetComponent<Square>().squareID == i)
                 {
-                    if(board.GetComponent<Square>().safeZone == ' ')
+                    switch(board.GetComponent<Square>().safeZone)
                     {
-                        board_[i] = board;
-                    }
-                    else
-                    {
-                        for (int j = 0; j < 7; j++)
-                        {
-                            if (board.GetComponent<Square>().squareID == j + i)
-                                board_[i + j] = board;
-                        }
+                        case 'y':
+                            for (int j = 0; j < 7; j++)
+                            {
+                                if (board.GetComponent<Square>().squareID == j + i)
+                                    board_[i + j] = board;
+                            }
+                            break;
+                        case 'g':
+                            for (int j = 0; j < 7; j++)
+                            {
+                                if (board.GetComponent<Square>().squareID == j + i)
+                                    board_[i + j + 7] = board;
+                            }
+                            break;
+                        case 'r':
+                            for (int j = 0; j < 7; j++)
+                            {
+                                if (board.GetComponent<Square>().squareID == j + i)
+                                    board_[i + j + 14] = board;
+                            }
+                            break;
+                        case 'b':
+                            for (int j = 0; j < 7; j++)
+                            {
+                                if (board.GetComponent<Square>().squareID == j + i)
+                                    board_[i + j + 21] = board;
+                            }
+                            break;
+                        default:
+                            board_[i] = board;
+                            break;
                     }
                 }
             }
