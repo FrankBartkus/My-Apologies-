@@ -17,6 +17,10 @@ public class PawnMove : MonoBehaviour
     bool start = true;
     public char color;
     float timer = 0.0f;
+    int[] yellow =  {  2,  0 };
+    int[] green =   { 17,  7 };
+    int[] red =     { 32,  14 };
+    int[] blue =    { 47,  21 };
     // Start is called before the first frame update
     void Start()
     {
@@ -41,7 +45,6 @@ public class PawnMove : MonoBehaviour
                             {
                                 movedPawnNumber = pawnNumber;
                                 selectBoard = manager.GetComponent<GameManager>().board_[findId(moveBy)];
-                                Debug.Log(findId(moveBy));
                                 lightBoard();
                             }
                         }
@@ -74,28 +77,62 @@ public class PawnMove : MonoBehaviour
         switch (color)
         {
             case 'y':
-                if ((id + i + 60) % 60 > 3 && (id + 60) % 60 < 3)
+                if (id > 60 - 1 + yellow[1])
                 {
-                    return (id + i) + 60 - 3;
+                    // Don't have home yet
+                    // return (id + i < 60 + 7 - 1 + yellow[1]) ? id + i : id;
+                    return (id + i < 60 + 7 - 1 - 1 + yellow[1]) ? id + i : id;
+                }
+                else if ((id + i + 60 - yellow[0] - 1) % 60 < (id + 60 - yellow[0] - 1) % 60)
+                {
+                    return ((id + i) % 60 + 60 - yellow[0] - 1);
                 }
                 break;
             case 'g':
-                id = 19 + i;
+                if (id > 60 - 1 + green[1])
+                {
+                    // Don't have home yet
+                    // return (id + i < 60 + 7 - 1 + green[1]) ? id + i : id;
+                    return (id + i < 60 + 7 - 1 - 1 + green[1]) ? id + i : id;
+                }
+                else if ((id + i + 60 - green[0] - 1) % 60 < (id + 60 - green[0] - 1) % 60)
+                {
+                    return ((id + i) % 60 + 60 - green[0] - 1);
+                }
                 break;
             case 'r':
-                id = 34 + i;
+                if (id > 60 - 1 + red[1])
+                {
+                    // Don't have home yet
+                    // return (id + i < 60 + 7 - 1 + red[1]) ? id + i : id;
+                    return (id + i < 60 + 7 - 1 - 1 + red[1]) ? id + i : id;
+                }
+                else if ((id + i + 60 - red[0] - 1) % 60 < (id + 60 - red[0] - 1) % 60)
+                {
+                    return ((id + i) % 60 + 60 - red[0] - 1);
+                }
                 break;
             case 'b':
-                id = 49 + i;
+                if (id > 60 - 1 + blue[1])
+                {
+                    // Don't have home yet
+                    // return (id + i < 60 + 7 - 1 + blue[1]) ? id + i : id;
+                    return (id + i < 60 + 7 - 1 - 1 + blue[1]) ? id + i : id;
+                }
+                else if ((id + i + 60 - blue[0] - 1) % 60 < (id + 60 - blue[0] - 1) % 60)
+                {
+                    return ((id + i) % 60 + 60 - blue[0] - 1);
+                }
                 break;
         }
         return (id + i) % 60;
     }
     void lightBoard()
     {
-        for (int j = 0; j < 60; j++)
+        for (int j = 0; j < 60 + 4 * 7; j++)
         {
-            manager.GetComponent<GameManager>().board_[j].GetComponent<SpriteRenderer>().color = unSelected;
+            if(manager.GetComponent<GameManager>().board_[j] != null)
+                manager.GetComponent<GameManager>().board_[j].GetComponent<SpriteRenderer>().color = unSelected;
         }
         selectBoard.GetComponent<SpriteRenderer>().color = selected;
     }
@@ -106,8 +143,8 @@ public class PawnMove : MonoBehaviour
         {
             if (movedPawnNumber == pawnNumber)
             {
-                if((moveBy + currentID) % 60 < moveBy % 60)
-                Debug.Log(moveBy + currentID);
+                //if((moveBy + currentID) % 60 < moveBy % 60)
+                //Debug.Log(moveBy + currentID);
                 moveTo = selectBoard;
                 selectBoard = null;
                 timer = 1.5f;
