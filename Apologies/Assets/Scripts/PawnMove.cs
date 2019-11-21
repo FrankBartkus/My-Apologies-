@@ -17,10 +17,10 @@ public class PawnMove : MonoBehaviour
     bool start = true;
     public char color;
     float timer = 0.0f;
-    int[] yellow =  {  2,  0 };
-    int[] green =   { 17,  7 };
-    int[] red =     { 32,  14 };
-    int[] blue =    { 47,  21 };
+    const int yellow =  0;
+    const int green =   1;
+    const int red =     2;
+    const int blue =    3;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,7 +37,7 @@ public class PawnMove : MonoBehaviour
             {
                 if (manager != null)
                 {
-                    if (manager.GetComponent<GameManager>().turn == 0 && color == 'y' || manager.GetComponent<GameManager>().turn == 1 && color == 'g' || manager.GetComponent<GameManager>().turn == 2 && color == 'r' || manager.GetComponent<GameManager>().turn == 3 && color == 'b')
+                    if (manager.GetComponent<GameManager>().turn == yellow && color == 'y' || manager.GetComponent<GameManager>().turn == green && color == 'g' || manager.GetComponent<GameManager>().turn == red && color == 'r' || manager.GetComponent<GameManager>().turn == blue && color == 'b')
                     {
                         if (moveBy != 0 && !selectionMade)
                         {
@@ -61,70 +61,39 @@ public class PawnMove : MonoBehaviour
             switch (color)
             {
                 case 'y':
-                    id = 2 + i;
+                    id = 15 * yellow + 2 + 1;
                     break;
                 case 'g':
-                    id = 17 + i;
+                    id = 15 * green + 2 + 1;
                     break;
                 case 'r':
-                    id = 32 + i;
+                    id = 15 * red + 2 + 1;
                     break;
                 case 'b':
-                    id = 47 + i;
+                    id = 15 * blue + 2 + 1;
                     break;
             }
         }
+            int use = -1;
         switch (color)
         {
             case 'y':
-                if (id > 60 - 1 + yellow[1])
-                {
-                    // Don't have home yet
-                    // return (id + i < 60 + 7 - 1 + yellow[1]) ? id + i : id;
-                    return (id + i < 60 + 7 - 1 - 1 + yellow[1]) ? id + i : id;
-                }
-                else if ((id + i + 60 - yellow[0] - 1) % 60 < (id + 60 - yellow[0] - 1) % 60)
-                {
-                    return ((id + i) % 60 + 60 - yellow[0] - 1);
-                }
+                use = yellow;
                 break;
             case 'g':
-                if (id > 60 - 1 + green[1])
-                {
-                    // Don't have home yet
-                    // return (id + i < 60 + 7 - 1 + green[1]) ? id + i : id;
-                    return (id + i < 60 + 7 - 1 - 1 + green[1]) ? id + i : id;
-                }
-                else if ((id + i + 60 - green[0] - 1) % 60 < (id + 60 - green[0] - 1) % 60)
-                {
-                    return ((id + i) % 60 + 60 - green[0] - 1);
-                }
+                use = green;
                 break;
             case 'r':
-                if (id > 60 - 1 + red[1])
-                {
-                    // Don't have home yet
-                    // return (id + i < 60 + 7 - 1 + red[1]) ? id + i : id;
-                    return (id + i < 60 + 7 - 1 - 1 + red[1]) ? id + i : id;
-                }
-                else if ((id + i + 60 - red[0] - 1) % 60 < (id + 60 - red[0] - 1) % 60)
-                {
-                    return ((id + i) % 60 + 60 - red[0] - 1);
-                }
+                use = red;
                 break;
             case 'b':
-                if (id > 60 - 1 + blue[1])
-                {
-                    // Don't have home yet
-                    // return (id + i < 60 + 7 - 1 + blue[1]) ? id + i : id;
-                    return (id + i < 60 + 7 - 1 - 1 + blue[1]) ? id + i : id;
-                }
-                else if ((id + i + 60 - blue[0] - 1) % 60 < (id + 60 - blue[0] - 1) % 60)
-                {
-                    return ((id + i) % 60 + 60 - blue[0] - 1);
-                }
+                use = blue;
                 break;
         }
+        if (id > 60 - 1 + 6 * use)
+            return (id + i < 60 + 6 * (use + 1)) ? id + i : id;
+        else if ((id + i + 60 - (15 * use - 2) - 1) % 60 < (id + 60 - (15 * use - 2) - 1) % 60)
+            return ((id + i) % 60 + 60 - (15 * use + 2) + 6 * use - 1);
         return (id + i) % 60;
     }
     void lightBoard()
@@ -134,7 +103,10 @@ public class PawnMove : MonoBehaviour
             if(manager.GetComponent<GameManager>().board_[j] != null)
                 manager.GetComponent<GameManager>().board_[j].GetComponent<SpriteRenderer>().color = unSelected;
         }
-        selectBoard.GetComponent<SpriteRenderer>().color = selected;
+        if (selectBoard.GetComponent<SpriteRenderer>() == null)
+            Debug.Log("):");
+        else
+            selectBoard.GetComponent<SpriteRenderer>().color = selected;
     }
     // Update is called once per frame
     void Update()
@@ -143,8 +115,8 @@ public class PawnMove : MonoBehaviour
         {
             if (movedPawnNumber == pawnNumber)
             {
-                //if((moveBy + currentID) % 60 < moveBy % 60)
-                //Debug.Log(moveBy + currentID);
+                //  if((moveBy + currentID) % 60 < moveBy % 60)
+                //      Debug.Log(moveBy + currentID);
                 moveTo = selectBoard;
                 selectBoard = null;
                 timer = 1.5f;
@@ -192,8 +164,9 @@ public class PawnMove : MonoBehaviour
             }
             else if (timer > 0.9f)
             {
-                LeanTween.moveLocalZ(gameObject, moveTo.transform.position.z + (Random.value - 0.5f) / 4, 0.3f);
-                LeanTween.moveLocalX(gameObject, moveTo.transform.position.x + (Random.value - 0.5f) / 4, 0.3f);
+                float tempId = moveTo.GetComponent<Square>().squareID;
+                LeanTween.moveLocalZ(gameObject, moveTo.transform.position.z + (Random.value - 0.5f) / ((tempId % 15 != 5 || tempId < 65) ? 4 : 1), 0.3f);
+                LeanTween.moveLocalX(gameObject, moveTo.transform.position.x + (Random.value - 0.5f) / ((tempId % 15 != 5 || tempId < 65) ? 4 : 1), 0.3f);
             }
             else if (timer > 0.6f)
             {
@@ -207,7 +180,7 @@ public class PawnMove : MonoBehaviour
                 moveTo = null;
                 movedPawnNumber = -1;
                 selectionMade = false;
-                //manager.GetComponent<GameManager>().turn = ++manager.GetComponent<GameManager>().turn % 4;
+                manager.GetComponent<GameManager>().turn = ++manager.GetComponent<GameManager>().turn % 4;
             }
             timer -= Time.deltaTime;
         }
